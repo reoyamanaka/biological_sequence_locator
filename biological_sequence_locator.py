@@ -11,7 +11,7 @@ class MyApp(wx.App):
 
 class MyFrame(wx.Frame):
     def __init__(self):
-        super().__init__(parent=None, title = "Genetic Sequence Locator", size = (700, 650))
+        super().__init__(parent=None, title = "Genetic Sequence Locator", size = (708, 630))
         self.OnInit()
 
     def OnInit(self):
@@ -25,21 +25,30 @@ class MyPanel(wx.Panel):
         titleLabel = wx.StaticText(self, label = "Genetic Sequence Locator", pos = (30, 30))
         titleLabel.SetFont(labelFont)
 
-        inputLabel = wx.StaticText(self, label = "Select the .txt file containing the COMPLETE sequence of interest.", pos = (30, 75))
-        txtFileInput = wx.FilePickerCtrl(self, pos = (440, 70))
+        inputLabel = wx.StaticText(self, label = "Select the .txt file containing the COMPLETE sequence.", pos = (30, 75))
+        txtFileInput = wx.FilePickerCtrl(self, pos = (370, 70))
             
         sequenceLabel = wx.StaticText(self, label = "Insert the shorter sequence of interest.", pos = (30, 125))
         sequenceInput = wx.TextCtrl(self, pos = (280, 123), size = (200, 24))
 
         def locate(self):
-            fileLocation = sequenceInput.GetValue()
+            fileLocation = txtFileInput.GetPath()
+            soi = sequenceInput.GetValue()
             appendInput = ""
             with open(fileLocation, 'r') as rf:
                 for line in rf:
                     appendInput += line
             print(appendInput)
+            if appendInput.find(soi) == -1:
+                print("not found")
+            else:
+                print(appendInput.find(soi))
 
-        sequenceButton = wx.Button(self, label = "Search sequence of interest.", pos = (490, 125))
+            
+            
+            
+
+        sequenceButton = wx.Button(self, label = "Search Sequence of Interest", pos = (490, 125))
         sequenceButton.Bind(wx.EVT_BUTTON, locate)
 
         resultsLabel = wx.StaticText(self, label = "Results:", pos = (30, 175))
