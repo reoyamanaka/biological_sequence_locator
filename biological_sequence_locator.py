@@ -30,7 +30,7 @@ class MyPanel(wx.Panel):
         locationsPrimer.Hide()
         locations = wx.StaticText(panelScroll, label = "", pos = (250, 65))
         boxSizer = wx.BoxSizer(wx.VERTICAL)
-
+        boxSizer.Add(locations)
             
         sequenceLabel = wx.StaticText(self, label = "Insert the shorter sequence of interest.", pos = (30, 125))
         sequenceInput = wx.TextCtrl(self, pos = (280, 123), size = (200, 24))
@@ -42,11 +42,24 @@ class MyPanel(wx.Panel):
             with open(fileLocation, 'r') as rf:
                 for line in rf:
                     appendInput += line
+            appendInput = appendInput.replace(" ", "")
             print(appendInput)
             if appendInput.find(soi) == -1:
-                print("not found")
+                locationsPrimer.Show()
+                locationsPrimer.SetLabel("Smaller sequence not found.")
+                locations.Hide()
+                matches = re.finditer(soi, appendInput)
+                raw_matches_positions = [match.start() for match in matches]
+                matches_positions = []
+                for i in raw_matches_positions:
+                    matches_positions.append(i + 1)
+                occurrence.SetLabel(str(len(matches_positions)))
+                
+                
             else:
                 locationsPrimer.Show()
+                locations.Show()
+                locationsPrimer.SetLabel("The shorter sequence of interest was found on:")
                 panelScroll.SetSizer(boxSizer)
                 panelScroll.SetupScrolling(scroll_x = True, scroll_y = True)
                 matches = re.finditer(soi, appendInput)
@@ -59,7 +72,6 @@ class MyPanel(wx.Panel):
                 tempLocations = 2*"\n"
                 for i in matches_positions:
                     tempLocations += "\t" + "Nucleotide/amino acid index: " + str(i) + "\n"
-                boxSizer.Add(locations)
                 locations.SetLabel(tempLocations)
                 
         sequenceButton = wx.Button(self, label = "Search Sequence of Interest", pos = (490, 125))
@@ -68,8 +80,8 @@ class MyPanel(wx.Panel):
         resultsLabel = wx.StaticText(self, label = "Results:", pos = (30, 175))
         resultsLabel.SetFont(labelFont)
         
-        occurrenceLabel = wx.StaticText(self, label = "Occurrence frequency of the shorter sequence in the input .txt:", pos = (30, 215))
-        occurrence = wx.StaticText(self, label = "", pos = (430, 215))
+        occurrenceLabel = wx.StaticText(self, label = "Occurrence frequency of the shorter sequence in the input text file:", pos = (30, 215))
+        occurrence = wx.StaticText(self, label = "", pos = (460, 215))
 
         locationLabel = wx.StaticText(self, label = "Location(s):", pos = (30, 255))
         locationOutput = wx.StaticText(self, label = "", pos = (30, 290))
