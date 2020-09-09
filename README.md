@@ -40,6 +40,16 @@
 
 ## About The Project
 
+<p align="left">
+  <span>An important peptide sequence in COVID-19's Spike Protein (P0DTC2) is the <b>Signal Peptide</b>. The Signal Peptide enables the virus to bind to our cells for infection, so a researcher may be interested in locating all instances of its sequence in any given protein sequence. This program could help the researcher accomplish this.</span>
+  <br />
+  <img src="images/usecase.png">
+</p>
+<p>
+<b>Source</b>: Wrapp, Daniel, Nianshuan Wang, Kizzmekia S. Corbett, Jory A. Goldsmith, Ching-Lin Hsieh, Olubukola Abiona, Barney S. Graha, and Jason S. McLellan. "Cryo-EM structure of the 2019-nCoV spike in the prefusion conformation". <i>Science</i> 367, Issue 6483 (13 March 2020): 1260-1263. DOI: 10.1126/science.abb2507   
+</p>
+
+
 <p align="center">
   <img src="images/demo.png">
 </p>
@@ -77,15 +87,6 @@ pip install wxpython
 ```
 
 ## Usage
-
-<p align="left">
-  <span>A sample use case would be a researcher investigating COVID-19's Spike Protein (P0DTC2). An important peptide sequence in this protein is the <b>Signal Peptide</b>, which enables the virus to bind to our cells for infection. The researcher could use this program to locate all instances of the Signal Peptide in any given protein sequence.</span>
-  <br />
-  <img src="images/usecase.png">
-</p>
-<p>
-<b>Source</b>: Wrapp, Daniel, Nianshuan Wang, Kizzmekia S. Corbett, Jory A. Goldsmith, Ching-Lin Hsieh, Olubukola Abiona, Barney S. Graha, and Jason S. McLellan. "Cryo-EM structure of the 2019-nCoV spike in the prefusion conformation". <i>Science</i> 367, Issue 6483 (13 March 2020): 1260-1263. DOI: 10.1126/science.abb2507   
-</p>
 
 <div align="center">
   <strong>YouTube Demo</strong><br>

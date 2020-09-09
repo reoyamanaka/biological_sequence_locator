@@ -54,8 +54,7 @@ class MyPanel(wx.Panel):
                 for i in raw_matches_positions:
                     matches_positions.append(i + 1)
                 occurrence.SetLabel(str(len(matches_positions)))
-                
-                
+                        
             else:
                 locationsPrimer.Show()
                 locations.Show()
@@ -85,7 +84,6 @@ class MyPanel(wx.Panel):
 
         locationLabel = wx.StaticText(self, label = "Location(s):", pos = (30, 255))
         locationOutput = wx.StaticText(self, label = "", pos = (30, 290))
-
 
         def quitProgram(self):
             sys.exit()
