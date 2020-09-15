@@ -41,7 +41,7 @@
 ## About The Project
 
 <p align="left">
-  <span>An important peptide sequence in COVID-19's Spike Protein (P0DTC2) is the <b>Signal Peptide</b>. The Signal Peptide enables the virus to bind to our cells for infection, so a researcher may be interested in locating all instances of its sequence in any given protein sequence. This program could help the researcher accomplish this.</span>
+  <span>An important peptide sequence in COVID-19's Spike Protein (P0DTC2) is the <b>Signal Peptide</b>. The Signal Peptide enables the virus to bind to our cells for infection, so researchers may be interested in locating all instances of its sequence in any given protein sequence. This program could help accomplish this.</span>
   <br />
   <img src="images/usecase.png">
 </p>
